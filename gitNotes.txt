@@ -1,0 +1,221 @@
+++++++++++++++++++++++++++++++++++++
+setup to work with Git Hub
+++++++++++++++++++++++++++++++++++++
+1)Create Github account(www.github.com)
+2)Download and install Git Client software ( https://git-scm.com/downloads )
+3)Once installation completed,right click on the mouse and verify git options display
+4)If git options displaying our git client installation completed successfully
+
+
+++++++++++++++++++++++++++++++++++++
+Working with GitHub
+++++++++++++++++++++++++++++++++++++
+
+1)Login into github account with your credentials
+2)Create Repository in githib
+
+Note:Repository is used to store project source code.Every project will have one Repository
+3)When we create a repository ,unique URL will be generated with Repository Name(i.e Repo URL)
+https://github.com/Renukadeveloper96/sampleProject.git
+
+4)All the developers will connect to repository using Repository URL
+
+5)We can create 2 types of repositories
+1)public
+2)private
+
+public repository means everybody can access but we can choose who can modify our repository
+Private Repository means we will choose who can access and who can modify
+
+++++++++++++++++++++++++++++++++++++
+Working with Git Bash
+++++++++++++++++++++++++++++++++++++
+
+-> Git Bash we can use as Git Client software to perform Git Operations
+
+-> Download and install git client (https://git-scm.com/downloads)
+
+-> Right Click on Mouse and choose "Open Git Bash Here"
+
+
+git help : It will display frequently used git commands
+
+git help <cmd-name> : It will open documentation for given command
+
+
+++++++++++++++++++++++++++++++++++++
+Configure Your Email and Name in Git Bash with Commands
+==================================================
+
+$ git config --global user.email "youremail@yourdomain.com"
+
+$ git config --global user.name "name"
+
+Note: email and name we will configure only for first time.
+
+
+$ git init : To initialize our folder as git working tree folder
+
+$ git clone : To clone git repository to our machine from github.com 
+
+		Syntax : $ git clone <project-repo-url>
+
+$ git status : It will display staged , un-staged and un-tracked files
+
+		Syntax : $ git status
+
+		Staged Files : The files which are added for commit
+
+		Un-Staged Files : The files which are modified but not added for commit
+
+		Un-tracked files : Newly created files
+
+Note: To commit a file(s), we should add to staging area first
+
+
+$ git add : It is used to add file(s) to staging area
+
+		Syntax : $ git add <file-name>
+
+				$ git add .
+
+
+$ git commit : It is used to commit staged files to git local repository
+
+		Syntax : $ git commit -m 'reason for commit'
+
+
+$ git push : To push changes from git local repository to git central repository
+
+		Syntax  : $ git push
+
+$ git rm : To remove file(s) from repository
+
+
+++++++++++++++++++++++++++++++++++++
+Steps to push code to github central repository
+++++++++++++++++++++++++++++++++++++
+
+1) Create one public repository in git hub (take github repo url)
+
+2) Clone github repository using 'git clone' command
+
+		$ git clone 'repo-url'
+
+3) Navigate to repository folder
+
+4) Create one file in repository folder
+
+		$ touch Demo.java
+
+5) Check status of the file using 'git status' command
+
+		$ git status (It will display as untracked file)
+
+6) Add file to staging area using 'git add' command
+
+		$ git add .
+
+7) Commit file to git local repository
+
+		$ git commit -m 'commit-msg'
+
+8) Push file from git local repository to git central repository using 'git push' command
+
+		$ git push
+
+Note: If you are doing 'git push' for first time it will ask to enter your github account password.
+
+
+++++++++++++++++++++++++++++++++++++
+Note: Git bash will ask our password only for first time. It will save our git credentials in Credential Manager in Windows machine.
+
+-> Go to Credential Manager -> Windows Credentials -> Select Github -> We can modify and delete saved credentials from here
+++++++++++++++++++++++++++++++++++++
+
+We can check commit history using 'git log' command
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Steps to commit Maven Project to Github Repository
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+$ git init
+$ git add .
+$ git commit -m 'commit-msg'
+$ git branch -M main
+$ git remote add origin <repo-url>
+$ git push -u origin master
+
+Usecase
+++++++++
+-> manager assigned task id : 101
+-> I am working on that task (i am in middle of the task)
+-> Managed told that stop the work for 101 and complete 102 on priority. 
+-> Once 102 is completed then resume your work on 101
+
+-> When manager asked me to start 102 task, i have already done few changes for 101 
+  (partially completed)
+  
+-> We can't push partial changes to repository because with our partial changes existing functionality may break.
+
+-> We can't delete our changes because we have spent few hours of time to implement those changes
+
+
+***************  In this scenario we will go for 'git stash' option *********************
+
+=> Git stash is used to save working tree changes to temporary location and make working tree clean.
+
+-> After priority work completed we can get stashed changes back using 'git stash apply'
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Git Branches
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+-> Branches are used to maintain seperate code bases for our project
+
+-> In GiT repository we can create multiple branches
+
+main
+develop
+qa
+release
+research
+
+
+-> development team will integrate the code in 'develop' branch
+
+-> bug-fixing team will integrate the code in 'qa' branch
+
+-> R & D team will integrate the code in 'research' branch
+
+
+-> In github we can create branches
+
+-> To clone particular branch in git repo we will use below command
+
+		$ git clone -b <branch-name> <repo-url>
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Branch Merging
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+=> The process of merging changes from one branch to another branch is called as Branch merging
+
+=> We will use Pull Request for Branch Merging
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Steps to do branch merging
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+1) Create feature branch from main branch
+
+2) clone feature branch 
+
+3) create new file in feature branch then commit and push to central repo
+
+4) Go to central repository then create pull request to merge feature branch changes to main branch
+
+Note: Once feature branch changes are merged to main branch then we can delete feature branch (if required)
+
+
+commands:
+git rm:we can delete files in both local and repository 
