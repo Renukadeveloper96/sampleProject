@@ -223,3 +223,6 @@ git rm:we can delete files in both local and repository
 
 git pull <remote> <branch>--not getting this command
 git pull origin develop
+
+you are writing some code but your manager please stop start before task but i already typed some code how to save?using stash
+if you want again git stash apply
